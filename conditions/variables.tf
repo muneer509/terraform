@@ -6,7 +6,7 @@ variable "ami_id" {
 
 variable "instance_type" {
     type = string
-    #default = "t3.micro"
+    default = "t3.micro"
 }
 
 variable "tags" {
@@ -45,4 +45,17 @@ variable "protocol" {
 variable "cidr_blocks" {
     type = list(string)
     default = ["0.0.0.0/0"]
+}
+variable "Environment" {
+  type = string
+  default = "QA"
+}
+variable "common_tags" {
+  type = map(string)
+  default = {
+    "Terraform" = "true"
+    "Environment" = "QA"
+    "Project" = "Expense"
+
+  }
 }

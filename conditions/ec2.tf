@@ -1,9 +1,12 @@
 resource "aws_instance" "terraform_instance" {
 
     ami = var.ami_id
-    instance_type = var.instance_type
+    instance_type = var.Environment == "Prod" ? "t3.small" : "t3.micro"
     vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
-    tags = var.tags
+    tags = {
+        Name = "Terraform-instance" ,
+       
+}
 }
 
 resource "aws_security_group" "allow_ssh_terraform" {
@@ -28,6 +31,6 @@ resource "aws_security_group" "allow_ssh_terraform" {
     }
 
     tags = {
-        Name = "allow_ssh_terraform"
+        Name = "allow_ssh_23_terraform"
     }
 }
