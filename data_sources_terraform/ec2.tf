@@ -1,6 +1,6 @@
 resource "aws_instance" "terraform_instance" {
 
-    ami = var.ami_id
+    ami = data.aws_ami.joindevops.id
     count = length(var.instance_names)
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
