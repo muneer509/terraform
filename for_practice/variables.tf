@@ -46,3 +46,7 @@ variable "cidr_blocks" {
     type = list(string)
     default = ["0.0.0.0/0"]
 }
+variable "number_of_servers" {
+    type = number
+  
+}
