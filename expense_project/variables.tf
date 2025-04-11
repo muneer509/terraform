@@ -50,3 +50,11 @@ variable "instance_names" {
   type = list(string)
   default = [ "mysql","backend","frontend" ]
 }
+variable "zone_id" {
+  type = string
+  default = "Z02542641NKWMWXM4G9FV"
+}
+variable "domain_name" {
+  type = string
+  default = "mdevpos.online"
+}
